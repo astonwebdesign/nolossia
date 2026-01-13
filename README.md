@@ -6,7 +6,7 @@ Canonical positioning (one sentence): **CLI safety-first dedupe/merge for dataho
 
 > **Migration note:** MAPhoto has been renamed to **Nolossia** (“Preview Then Merge”). You may still see the old name in archived reports and historical decision logs.
 
-> **Primary persona:** Privacy-first NAS steward who wants deterministic, offline dedupe and chronological merges without cloud exposure. Details in [`docs/research/user_sessions/persona.md`](docs/research/user_sessions/persona.md).
+> **Primary persona:** Privacy-first NAS steward who wants deterministic, offline dedupe and chronological merges without cloud exposure. 
 
 ## Status (MVP)
 - CLI wizard: SCAN → DEDUPE → MERGE PREVIEW → MERGE EXECUTE.
@@ -24,10 +24,6 @@ Canonical positioning (one sentence): **CLI safety-first dedupe/merge for dataho
 - Privacy-focused photo hoarders and NAS owners who distrust cloud sync tools or online AI sorters.
 - CLI/TUI-friendly users who prefer deterministic, auditable outputs and can run offline workflows.
 - People migrating scattered folders/exports into one offline, chronological library without sharing data upstream.
-
-### Persona & Positioning Resources
-- [`docs/research/user_sessions/persona.md`](docs/research/user_sessions/persona.md) — deeper narrative, needs/pain points, and messaging guardrails for Phase 1.
-- [`docs/research/reports//privacy_gotomarket.md`](docs/research/reports//privacy_gotomarket.md) — go-to-market brief citing the 2024 survey where **43% of users distrust cloud photo scanning** and outlining Nolossia’s privacy differentiators.
 
 ### Explicit limitations (Phase 1)
 - CLI-only workflow (GUI planned for a later phase).
@@ -65,8 +61,8 @@ Only the merge **EXECUTE** phase performs actual filesystem operations.
 - **Install & compliance notes:** see `installation/installation.md` for retention/audit guidance.
 - **Manual (current):**
   ```bash
-  git clone https://github.com/<your-username>/<repo>
-  cd <repo>
+  git clone https://github.com/astonwebdesign/nolossia
+  cd nolossia
   python3 -m venv .venv
   . .venv/bin/activate
   pip install --require-hashes -r requirements.txt
@@ -189,17 +185,10 @@ L dataset benchmark (reference run):
 
 ## Repository Structure
 ```
-<repo>/
+nolossia/
   README.md
+  LICENSE.txt
   requirements.txt
-  docs/
-    agents/
-    gov/
-    installation/
-    research/
-      reports/
-      user_sessions/
-    tasks/
   src/
     cli.py
     cli_formatter.py
@@ -217,97 +206,9 @@ L dataset benchmark (reference run):
       cluster.py
       mergeplan.py
       actions.py
-  skills/
-    prompt_standard/
-  tests/
-    test_cli.py
-    test_scanner.py
-    test_metadata.py
-    test_hashing.py
-    test_duplicates.py
-    test_organizer.py
-    test_merge_engine.py
-    test_reporting.py
-```
-
-## Governance & Agent Flow (High‑level)
-
-Nolossia uses a strict, auditable governance flow that separates **research**, **strategy**, and **execution**.  
-No feature or change can reach implementation without passing each gate.
-
-### End‑to‑end flow
-
-```
-Research artefacts
-(docs/research/*)
-        |
-        v
-+---------------------------+
-| research/research_to_strategy.md   |
-| Role: RESEARCH_AGENT      |
-| Output: proposals         |
-| → docs/props/proposed/    |
-+---------------------------+
-        |
-        | (human proposals also start here)
-        v
-+---------------------------+
-| props_verification.md     |
-| Role: RESEARCH_AGENT      |
-| Purpose: reality check    |
-| Adds: ## Verification     |
-+---------------------------+
-        |
-        v
-+---------------------------+
-| strategy_agent.md         |
-| Role: STRATEGY_AGENT      |
-| Decision:                |
-|  accepted | on_hold |     |
-|  archive                  |
-| STRATEGY.md is PO-controlled and read-only; STOP/BLOCKED on write attempts. |
-| Updates: proposal status + routing/index |
-+---------------------------+
-        |
-        v
-+---------------------------+
-| task_implementor.md       |
-| Role: IMPLEMENTATION_AGENT|
-| Output: backlog           |
-| → docs/tasks/TODO.md      |
-+---------------------------+
-        |
-        v
-Implementation & Tests
-(src/, tests/)
-```
-
-### Key rules
-
-- **Research does not decide** — it only proposes.
-- **Strategy does not implement** — it only accepts, defers, or archives.
-- **Implementation does not invent scope** — it executes accepted proposals only.
-- Human ideas and AI research follow **the same pipeline**.
-- All steps are file‑based, reviewable, and reproducible.
-
-### Why this matters
-
-- Prevents scope creep and founder bias  
-- Ensures every change is traceable to evidence  
-- Makes automation safe without losing human oversight  
-- Keeps Nolossia aligned with its core promise: safety, determinism, and trust
-
-## Running Tests
-```bash
-pytest -q
 ```
 
 ## Notes
 - HTML/JSON reports are generated from the active merge plan; no static fixtures.
 - OSC-8 terminal hyperlinks are used in CLI output when supported.
-- TODO.md tracks remaining gaps and future enhancements; AI/face/event features are out of scope for the current MVP.
-- Privacy policy & sample-data rules are documented in [`docs/gov/PRIVACY.md`](docs/gov/PRIVACY.md); never commit personal photo libraries or logs.
-- Go-to-market assets referencing the 43% cloud-distrust statistic and the synthetic case study live in [`docs/research/reports//privacy_gotomarket.md`](docs/research/reports//privacy_gotomarket.md) and [`docs/case-studies/v1_datahoarder.md`](docs/case-studies/v1_datahoarder.md).
 
-## Case Studies
-- [Datahoarder v1 (synthetic)](docs/case-studies/v1_datahoarder.md) — end-to-end case study with reproducible artifacts and sanitized datasets in `tests/data_public/`.
