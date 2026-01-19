@@ -12,5 +12,5 @@ def test_roadmap_matches_generated_output() -> None:
 
     expected = roadmap_tools.render_roadmap(repo_root=repo_root, index_path=index_path)
     actual = roadmap_path.read_text(encoding="utf-8")
-    assert actual == expected, "ROADMAP.md drift detected; run `python scripts/update_roadmap.py`."
+    assert actual == expected, "ROADMAP.md drift detected; run `python docs/scripts/update_roadmap.py`."
 

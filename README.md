@@ -79,8 +79,8 @@ Only the merge **EXECUTE** phase performs actual filesystem operations.
   - `pytest`
 - Install the provided `pre-commit` hooks (`pre-commit install`) to run Ruff and Bandit on staged files before committing.
 - Profiling helper (writes to `artifacts/profile.pstats` by default):
-  - `scripts/profile.sh -m src.cli --plain --no-banner --no-color merge tests/data/set_s --out artifacts/dest_s --dry-run`
-  - `scripts/profile.sh -m pytest tests/test_scanner.py`
+  - `docs/scripts/profile.sh -m src.cli --plain --no-banner --no-color merge artifacts/data/set_s --out artifacts/dest_s --dry-run`
+  - `docs/scripts/profile.sh -m pytest tests/test_scanner.py`
 
 ## CLI Commands
 - `python3 -m src.cli scan <paths...>` — read-only scan and dedupe wizard entry.
@@ -114,7 +114,7 @@ Automation FAQ (output changes):
 
 L dataset benchmark (reference run):
 - Machine: iMac 24-inch (M1, 16 GB RAM), macOS Sequoia 15.6.1.
-- Dataset: `tests/data_public/L/`, command: `python -m src.cli --plain --no-banner merge tests/data_public/L --out artifacts/dest_l --dry-run`.
+- Dataset: `artifacts/data_public/L/`, command: `python -m src.cli --plain --no-banner merge artifacts/data_public/L --out artifacts/dest_l --dry-run`.
 - Result: ~27.5s wall time, peak RSS ~1.18 GB, required storage 1.96 GB.
 
 ### Global flags

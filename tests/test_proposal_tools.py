@@ -124,7 +124,7 @@ def test_next_proposal_id_cli(tmp_path: Path) -> None:
     result = subprocess.run(
         [
             sys.executable,
-            "scripts/next_proposal_id.py",
+            "docs/scripts/next_proposal_id.py",
             "UX",
             "--year",
             "2025",
@@ -149,7 +149,7 @@ def test_check_proposal_ids_cli_reports_errors(tmp_path: Path) -> None:
     result = subprocess.run(
         [
             sys.executable,
-            "scripts/check_proposal_ids.py",
+            "docs/scripts/check_proposal_ids.py",
             "--base",
             str(props),
         ],
@@ -182,7 +182,7 @@ def test_check_release_candidates_cli(tmp_path: Path) -> None:
     result = subprocess.run(
         [
             sys.executable,
-            "scripts/check_release_candidates.py",
+            "docs/scripts/check_release_candidates.py",
             "--base",
             str(props),
             "--todo",

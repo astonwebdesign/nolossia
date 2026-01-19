@@ -13,7 +13,7 @@ SENTINEL = "STRATEGY.md is PO-controlled and read-only; STOP/BLOCKED on write at
         [
             "docs/props/proposal_manager.md",
             "docs/props/strategy_agent.md",
-            "skills/prompt_standard/contract.md",
+            "docs/gov/skills/prompt_standard/contract.md",
             "docs/gov/AGENTS.md",
             "docs/specs/CLI_COMMANDS.md",
         ],
