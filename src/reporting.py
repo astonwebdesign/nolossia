@@ -162,7 +162,7 @@ def write_log(entries: List[str], outfile: str = LOG_FILE_NAME):
     """
     directory = os.path.dirname(os.path.abspath(outfile)) or "."
     os.makedirs(directory, exist_ok=True)
-    timestamp = datetime.utcnow().isoformat()
+    timestamp = datetime.now().isoformat()
     with open(outfile, "a", encoding="utf-8") as handle:
         for entry in entries:
             normalized = entry if entry.startswith("[") else f"[INFO] {entry}"

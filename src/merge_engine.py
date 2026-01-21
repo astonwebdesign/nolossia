@@ -532,7 +532,7 @@ def preview_undo(plan: dict) -> dict:
     summary = {
         "operation_id": plan["operation_id"],
         "mode": "preview",
-        "generated_at": datetime.utcnow().isoformat(),
+        "generated_at": datetime.now().isoformat(),
         "library_root": plan["library_root"],
         "conflict_root": plan["conflict_root"],
         "entries": entries,
@@ -612,7 +612,7 @@ def execute_undo(plan: dict) -> dict:
     summary = {
         "operation_id": plan["operation_id"],
         "mode": "execute",
-        "generated_at": datetime.utcnow().isoformat(),
+        "generated_at": datetime.now().isoformat(),
         "library_root": plan["library_root"],
         "conflict_root": plan["conflict_root"],
         "entries": results,
