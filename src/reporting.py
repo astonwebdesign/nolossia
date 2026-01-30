@@ -1011,7 +1011,7 @@ def write_merge_report(plan: MergePlan, outfile: str, mode_label: str | None = N
                 "<body>",
                 "<h1>Nolossia Merge Report"
                 " <span class='badge badge-raw'>RAW + sidecars kept intact</span></h1>",
-                f"<div class='meta'>Docs alias: /docs/cli · <a href='{doc_href}'>CLI_COMMANDS.md</a></div>",
+                f"<div class='meta'>Docs alias: /lab/cli · <a href='{doc_href}'>CLI_COMMANDS.md</a></div>",
                 (f"<div class='meta'>Mode: {mode_text}</div>" if mode_text else ""),
                 "<div class='note'>Designed to prevent data loss. Review this report before you execute.</div>",
                 "<div class='card' style='margin-top:10px;'>"
@@ -1034,7 +1034,7 @@ def write_merge_report(plan: MergePlan, outfile: str, mode_label: str | None = N
                 "Use your browser's print dialog to print or save as PDF. "
                 "Note: PDF link clickability depends on your PDF viewer."
                 "</div>",
-                "<div class='note'>Docs alias: /docs/cli (destination requirements).</div>",
+                "<div class='note'>Docs alias: /lab/cli (destination requirements).</div>",
                 "<details class='section-toggle' style='margin-top:12px;'>",
                 "<summary><h2>Glossary</h2></summary>",
                 "<ul class='glossary'>",
@@ -1055,7 +1055,7 @@ def write_merge_report(plan: MergePlan, outfile: str, mode_label: str | None = N
                 "<div class='note'>Compliance reminder: keep logs and reports until review is complete.</div>"
                 "<div class='note'>Large datasets (L): run on local disks and split inputs if the system slows down.</div>"
                 "<div class='note'>Apple Photos: export unmodified originals to a local folder before running Nolossia. "
-                "Screenshot reference: docs/research/reports/apple_photos_export_reference.md.</div>"
+                "Screenshot reference: lab/research/reports/apple_photos_export_reference.md.</div>"
                 "</div>",
                 "<div class='summary'>",
                 f"<div class='card'><p class='metric'>Masters moved</p><p class='value'>{len(masters)} • {humanize_bytes(master_size)}</p></div>",

@@ -58,7 +58,7 @@ Only the merge **EXECUTE** phase performs actual filesystem operations.
 
 ## Installation
 
-- **Install & compliance notes:** see `installation/installation.md` for retention/audit guidance.
+- **Install & compliance notes:** see `release/installation.md` for retention/audit guidance.
 - **Manual (current):**
   ```bash
   git clone https://github.com/astonwebdesign/nolossia
@@ -68,8 +68,8 @@ Only the merge **EXECUTE** phase performs actual filesystem operations.
   pip install --require-hashes -r requirements.txt
   python3 -m src.cli --help
   ```
-- **Packaging roadmap:** see `installation/installation.md` for Homebrew, Winget/Chocolatey, AppImage/Debian/RPM, and container plans (with integrity checklist).
-- **Exit codes + UNC examples:** see `installation/installation.md`.
+- **Packaging roadmap:** see `release/installation.md` for Homebrew, Winget/Chocolatey, AppImage/Debian/RPM, and container plans (with integrity checklist).
+- **Exit codes + UNC examples:** see `release/installation.md`.
 
 ## Development & Lint Workflow
 - Follow [`CONTRIBUTING.md`](CONTRIBUTING.md) for the full governance-aware workflow.
@@ -79,8 +79,8 @@ Only the merge **EXECUTE** phase performs actual filesystem operations.
   - `pytest`
 - Install the provided `pre-commit` hooks (`pre-commit install`) to run Ruff and Bandit on staged files before committing.
 - Profiling helper (writes to `artifacts/profile.pstats` by default):
-  - `docs/scripts/profile.sh -m src.cli --plain --no-banner --no-color merge artifacts/data/set_s --out artifacts/dest_s --dry-run`
-  - `docs/scripts/profile.sh -m pytest tests/test_scanner.py`
+  - `scripts/profile.sh -m src.cli --plain --no-banner --no-color merge artifacts/data/set_s --out artifacts/dest_s --dry-run`
+  - `scripts/profile.sh -m pytest tests/test_scanner.py`
 
 ## CLI Commands
 - `python3 -m src.cli scan <paths...>` — read-only scan and dedupe wizard entry.
@@ -107,8 +107,8 @@ Automation FAQ (output changes):
 - New fields may be added to JSON, but existing fields remain stable for the same `schema_version`.
 - Log `schema_version` per run to detect changes across releases.
 - Use `--stream-json` for long runs to get phase updates without waiting for completion.
-- Pipe schema reference: `docs/specs/PIPE_SCHEMA.md`.
-- Changelog: see `docs/roadmap/ROADMAP.md` for release notes affecting automation output.
+- Pipe schema reference: `lab/specs/PIPE_SCHEMA.md`.
+- Changelog: see `lab/roadmap/ROADMAP.md` for release notes affecting automation output.
 - Versioning timeline:
   - `schema_version` 1.0 introduced with pipe JSON summaries and streaming events.
 

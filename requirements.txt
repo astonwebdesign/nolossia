@@ -2,3 +2,4 @@ Pillow
 pillow-heif
 pytest
 PyYAML
+pyvips>=2.2

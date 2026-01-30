@@ -1,0 +1,136 @@
+name: "Bug report"
+description: "Report a reproducible problem (Tier 1 community support)."
+title: "[BUG]: "
+labels: ["bug"]
+projects: ["Nolossia"]
+type: bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        
+        **Before submitting a bug report:**
+        - Search existing issues to see if your problem is already reported.
+        - Check the [Known Issues](https://github.com/nolossia/nolossia-dev/guide/14_known_issues.md) for your version.
+        - Review the [User Guide](https://github.com/nolossia/nolossia-dev/blob/main/guide/README.md) for troubleshooting tips.
+        - For usage questions, visit [Support](https://github.com/nolossia/nolossia-dev/discussions).
+        - Provide as much relevant information as possible to help us reproduce and diagnose the issue. 
+        _You can find the edition, OS, installation method, and version by running `nolossia doctor`._
+
+  - type: input
+    id: nolossia_version
+    attributes:
+      label: Nolossia version
+      description: What version of Nolossia do you have installed?
+      placeholder: "Copy/paste output of `nolossia --version`"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: edition
+    attributes:
+      label: Edition
+      description: Which edition of Nolossia are you using?
+      options:
+        - Community
+        - Basic
+        - Pro
+        - Enterprise
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: OS
+      description: Which operating system are you using?
+      options:
+        - macOS
+        - Windows
+        - Linux
+        - Other (describe below)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install_method
+    attributes:
+      label: Installation method
+      description: How was Nolossia installed?
+      options:
+        - pip
+        - docker
+        - snap
+        - system package manager
+        - homebrew
+        - conda
+        - from source
+        - other 
+    validations:
+      required: true
+      
+  - type: input
+    id: python_version
+    attributes:
+      label: Python version
+      placeholder: "Python 3.11.x"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        
+        **Reproduction steps:** 
+        
+        Please provide as much relevant information as possible to reproduce the issue. This helps us diagnose and fix the problem more efficiently.
+
+  - type: input
+    id: command
+    attributes:
+      label: Command run
+      description: Include the exact command (redact personal paths if needed).
+      placeholder: "nolossia merge <source> <dest> --execute"
+    validations:
+      required: true
+
+  - type: input
+    id: run_id
+    attributes:
+      label: run_id
+      description: From the report header, pipe output, or `<artifact_dir>/log__<run_id>.txt`.
+      placeholder: "2026-01-23T19-24-58.000000Z__cli"
+    validations:
+      required: false
+
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What happened?
+      description: Describe the observed behavior and any error messages.
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: artifacts
+    attributes:
+      label: Artifacts and logs (recommended)
+      description: |
+        Attach or paste sanitized excerpts from:
+        - `<artifact_dir>/log__<run_id>.txt`
+        - `<artifact_dir>/artifact_index__<run_id>.json`
+        - relevant HTML report(s)
+      render: text
+    validations:
+      required: false
+
+  

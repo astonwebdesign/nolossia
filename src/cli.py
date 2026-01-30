@@ -1866,7 +1866,7 @@ def main():
     parser = argparse.ArgumentParser(
         prog="nolossia",
         description="Nolossia CLI. Designed to prevent data loss.",
-        epilog="Docs alias: /docs/cli (CLI_COMMANDS.md quick reference).",
+        epilog="Docs alias: /lab/cli (CLI_COMMANDS.md quick reference).",
     )
     parser.add_argument(
         "--no-banner",
@@ -1904,7 +1904,7 @@ def main():
     parser.add_argument(
         "--docs-alias",
         action="store_true",
-        help="Print docs alias path: /docs/cli (quick reference).",
+        help="Print docs alias path: /lab/cli (quick reference).",
     )
     parser.add_argument(
         "--verbose",
@@ -2056,7 +2056,7 @@ def main():
 
     args = parser.parse_args()
     if args.docs_alias:
-        print("Docs alias: /docs/cli (CLI_COMMANDS.md quick reference)")
+        print("Docs alias: /lab/cli (CLI_COMMANDS.md quick reference)")
         raise SystemExit(0)
 
     pixel_limit, pixel_source = configure_pixel_limit(args.max_pixels)
